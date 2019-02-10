@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoose = require('mongoose');
-global.db = mongoose.connect('mongodb://localhost:27017/mongo_330957');
+global.db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mongo_330957');
 
 load('models').into(app);
 
